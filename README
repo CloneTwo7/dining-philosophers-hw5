@@ -1,0 +1,17 @@
+###README###
+
+This assignemnt simulates the dining philosophers problem.
+
+Each philosopher is simulated as a child process using Linux's fork() method for multi-processing.
+Meanwhile, each chopstick is simulated by a semaphore. These semaphores can be interracted with via the semop command "pickup" or "down".
+The problem is solved by setting the action of picking up BOTH chopsticks as being atomic.
+
+To Compile:
+
+	$gcc -go assignment5.c -lm
+
+To Run:
+
+	$./go
+
+The program will run providing updates on how long each process takes while it "eats". When each philosopher "eats" to the EAT_TIME macro value, the process will end and the main process will wait until all child proccesses are done "eating". The program is verbose and will accept any number of PHIL_NUM or EAT_TIME. However, the demonstration has not been tested with non-positive values.
